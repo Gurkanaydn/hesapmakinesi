@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <form name="toplam">
+        <label>1. Sayı : </label>
+        <input type="text" id="sayi1"><br><br>
+        <label>2. Sayı : </label>
+        <input type="text" id="sayi2"><br><br>
+        <input type="button" id="butonTopla" value="TOPLAMA">
+        <input type="button" id="butoncikar" value="ÇIKARMA">
+        <input type="button" id="butonbol" value="BÖLME">
+        <input type="button" id="butoncarp" value="ÇARPMA">
+        <input type="button" id="butonfaktoriyel" value="FAKTÖRİYEL">
+        <input type="button" id="butonortalama" value="ORTALAMA">
+        <input type="button" id="butonsil" value="Sİl">
+
+
+
+
+
+    </form>
+    <br>
+
+
+
+    <div id="kutusonuc"></div>
+    
+
+
+    
+
+
+    <script>
+        /* var btn = document.getElementById("butonTopla");
+        btn.onclick = function () {
+            var s1 = Number(document.getElementById("sayi1").value);
+            var s2 = Number(document.getElementById("sayi2").value);
+            var toplam = s1 + s2;
+            document.getElementById("kutusonuc").innerHTML = "Girilen Sayıların Toplamı : " + toplam;
+        }
+
+        var btn = document.getElementById("butoncarp");
+        btn.onclick = function () {
+            var s1 = Number(document.getElementById("sayi1").value);
+            var s2 = Number(document.getElementById("sayi2").value);
+            var carpma = s1 * s2;
+            document.getElementById("kutusonuc2").innerHTML = "Girilen Sayıların Çarpımı : " + carpma;
+        }
+
+        var btn = document.getElementById("butoncıkar");
+        btn.onclick = function () {
+            var s1 = Number(document.getElementById("sayi1").value);
+            var s2 = Number(document.getElementById("sayi2").value);
+            var cikarma = s1 - s2;
+            document.getElementById("kutusonuc4").innerHTML = "Girilen Sayıların Çıkarması : " + cikarma;
+
+
+        }
+        var btn = document.getElementById("butonbol");
+        btn.onclick = function () {
+            var s1 = Number(document.getElementById("sayi1").value);
+            var s2 = Number(document.getElementById("sayi2").value);
+            var bolme = s1 / s2;
+            document.getElementById("kutusonuc3").innerHTML = "Girilen Sayıların Bolumu : " + bolme;
+        }
+
+
+        var btn = document.getElementById("butonfaktoriyel");
+        btn.onclick = function () {
+            var s1 = Number(document.getElementById("sayi1").value);
+            sonuc = 1;
+            for (var i = 1; i <= s1; i++) {
+                sonuc *= i;
+
+            }
+            document.getElementById("kutusonuc5").innerHTML = "Girilen Sayıların Faktöriyeli : " + sonuc;
+
+
+        }
+
+        var btn = document.getElementById("ortalamagöster");
+        btn.onclick = function () {
+            var s1 = Number(document.getElementById("sayi1").value);
+            var s2 = Number(document.getElementById("sayi2").value);
+            var saortalama = (s1 + s2) / 2;
+
+            if (saortalama >= 50) {
+                document.getElementById("kutusonuc6").innerHTML = "Ortalamanız " + saortalama +
+                    " Bu dersten geçtiniz..";
+            } else if (saortalama < 50) {
+                document.getElementById("kutusonuc6").innerHTML = "Ortalamanız " + saortalama +
+                    " Bu dersten kaldınız..";
+            }
+        }
+        */
+
+        function hesapla(s1, s2, islem) {
+            switch (islem) {
+                case "topla":
+                    return s1 + s2;
+                    break;
+                case "cikar":
+                    return s1 - s2;
+                    break;
+                case "carp":
+                    return s1 * s2;
+                    break;
+                case "bol":
+                    return s1 / s2;
+                    break;
+                case "ortalama":
+                    return (s1+s2)/2;
+                    break;
+                case "faktoriyel":
+                    sonuc = 1;
+                    for(i=1; i<=s1; i++){
+                        sonuc *= i;
+                    }
+                    return sonuc;
+                    break;
+                default:
+            }
+        }
+
+
+
+        var btntopla = document.getElementById("butonTopla");
+        btntopla.onclick = function () {
+            var s1 = Number(document.getElementById("sayi1").value);
+            var s2 = Number(document.getElementById("sayi2").value);
+            var sonuctoplama = hesapla(s1, s2, "topla");
+            document.getElementById("kutusonuc").innerHTML += " Girilen sayıların toplamı: " + sonuctoplama;
+        }
+        var btncikar = document.getElementById("butoncikar");
+        btncikar.onclick = function () {
+            var s1 = Number(document.getElementById("sayi1").value);
+            var s2 = Number(document.getElementById("sayi2").value);
+            var sonuccikarma = hesapla(s1, s2, "cikar");
+            document.getElementById("kutusonuc").innerHTML += " Girilen sayıların çıkarması: " + sonuccikarma;
+        }
+        var btncarpma = document.getElementById("butoncarp");
+        btncarpma.onclick = function () {
+            var s1 = Number(document.getElementById("sayi1").value);
+            var s2 = Number(document.getElementById("sayi2").value);
+            var sonuccarpma = hesapla(s1, s2, "carp");
+            document.getElementById("kutusonuc").innerHTML += " Girilen sayıların çarpımı: " + sonuccarpma;
+        }
+
+        var btnbolme = document.getElementById("butonbol");
+        btnbolme.onclick = function () {
+            var s1 = Number(document.getElementById("sayi1").value);
+            var s2 = Number(document.getElementById("sayi2").value);
+            var sonucbolme = hesapla(s1, s2, "bol");
+            document.getElementById("kutusonuc").innerHTML += " Girilen sayıların bölümü: " + sonucbolme;
+        }
+
+        var btnortalma = document.getElementById("butonortalama");
+        btnortalma.onclick = function(){
+            var s1 = Number(document.getElementById("sayi1").value);
+            var s2 = Number(document.getElementById("sayi2").value);
+            var sonucortalama = hesapla(s1,s2,"ortalama")
+            if(sonucortalama>=50){
+                document.getElementById("kutusonuc").innerHTML += " Girilen sayıların ortalaması: " + sonucortalama + " sınavdan geçtiniz.";  
+            }
+            else if(sonucortalama<50){
+                document.getElementById("kutusonuc").innerHTML += " Girilen sayıların ortalaması: " + sonucortalama + " sınavdan kaldınız.";
+            }    
+        }
+
+        var btnfaktoriyel = document.getElementById("butonfaktoriyel");
+        btnfaktoriyel.onclick = function(){
+            var s1 = Number(document.getElementById("sayi1").value);
+            var s2 = Number(document.getElementById("sayi2").value);
+            var sonucfaktoriyel = hesapla(s1,s2,"faktoriyel");
+            document.getElementById("kutusonuc").innerHTML = " Girilen sayının faktöriyeli: " + sonucfaktoriyel;
+        }
+        
+        
+
+
+
+
+
+        var btn = document.getElementById("butonsil"); //SİLME FONKSİYONU
+        btn.onclick = function () {
+            
+                document.getElementById("kutusonuc").innerHTML = "";
+            
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
